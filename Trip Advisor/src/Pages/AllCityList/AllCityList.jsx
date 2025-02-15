@@ -16,10 +16,6 @@ export default function AllCityList({ trending }) {
     window.scrollTo(0, 0);
   }, []);
 
-  // Handle loading and error states
-  if (loading) return <h1>Loading cities...</h1>;
-  if (error) return <h1>{`Error: ${error}`}</h1>;
-
   return (
     <div className="all-city-list-container">
       <div className="all-city-list-header">
@@ -28,6 +24,7 @@ export default function AllCityList({ trending }) {
           Explore All Trending {trending === "trendingcity" ? "Cities" : "Places"}
         </h1>
       </div>
+      
       <AllCity cities={cities} trending={trending} navigate={navigate} />
     </div>
   );

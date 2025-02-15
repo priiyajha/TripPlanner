@@ -18,29 +18,44 @@ export default function HomePage() {
           <video src={bgg} autoPlay loop muted />
           <div className="overlay"></div>
         </div>
+        {/* NAVBAR */}
         <div className="Navbar">
           <NavBar />
         </div>
-        <div className="Hero">
+
+        {/* HERO SECTION */}
+        <div id="HeroSection" className="Hero">
           <HeroSection />
         </div>
-        <div className="BelowHero">
+
+        {/* BELOW HERO SECTION Why To Travel */}
+        <div id="Why_To_Travel" className="BelowHero">
           <BelowHeroSeaction />
-          {/* <WhatToSee /> */}
-        </div> 
-        <TravelGrid />
-          <div className="Stacks">
-          {/* <Stack /> */}
+        </div>
+
+        {/* TRAVEL GRID Based On Interest */}
+        <div id="TravelGrid_Based_On_Interest">
+          <TravelGrid />
+        </div>
+
+        {/* WHAT TO SEE IN INDIA */}
+        <div id="What_To_See_In_India" className="Stacks">
           <WhatToSee />
         </div>
-        <div className="Trending">
+
+        {/* TRENDING CITY & PLACES */}
+        <div id="Trending_City_Places" className="Trending">
           <Trending />
         </div>
-        <div className="LesserKnown">
-            <LesserKnown />
+
+        {/* LESSER KNOWN WONDERS */}
+        <div id="LesserKnown_Wonders" className="LesserKnown">
+          <LesserKnown />
         </div>
-        <div className="Collections-by-month">
-              <CollectionByMonth />
+
+        {/* COLLECTIONS BY MONTH */}
+        <div id="Collections_by_Month" className="Collections-by-month">
+          <CollectionByMonth />
         </div>
       </div>
     </>

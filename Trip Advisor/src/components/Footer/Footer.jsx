@@ -1,6 +1,5 @@
 import React from 'react'
 import './Footer.css';
-import bg from "../../assets/landscape-Panorama-02.jpg"
 export default function Footer() {
   return (
     <>

@@ -1,6 +1,11 @@
+// ALL CITY AND PLACES LIST
 import React from "react";
-
+import "./AllCity.css";
+import AllCitySkeleton from "./AllCitySkeleton";
 export default function AllCity({ cities, trending, navigate }) {
+  if(!cities){
+    return <AllCitySkeleton />
+  }
   return (
     <div className="city-cards-grid">
       {cities.length > 0 ? (

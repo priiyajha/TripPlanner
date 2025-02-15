@@ -41,7 +41,3 @@ export default function TrendingSlider({cards,text}) {
     </>
   )
 }
-          // <div key={index} className="card">
-          //   <img src={item.src} alt={item.title} />
-          //   <div className="card-title">{item.title}</div>
-          // </div>

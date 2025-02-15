@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import images from "../../assets/images.png"
 import './NavBar.css';
 
 export default function NavBar() {
@@ -34,14 +35,15 @@ export default function NavBar() {
           <i className="fa fa-bars fa-2x"></i>
         </div>
         <div className="logo">
-          LOGO
+          <img src={images} alt="Logo" width={50} height={50} style={{ borderRadius: '50%' }}/>
         </div>
         <div className={`menu ${menuOpen ? 'showing' : ''}`}>
           <ul>
             <li><a href="/">Home</a></li>
             <li><a href="#">Search</a></li>
-            <li><a href="/where-to">Where To</a></li>
+            <li><a href="/plantrip">Plan Trip</a></li>
             <li><a href="#">Contact</a></li>
+            <li style={{borderRadius: '50%'}}><a href="#login"><i className="fa fa-user"></i></a></li>
           </ul>
         </div>
       </nav>

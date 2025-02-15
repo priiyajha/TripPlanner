@@ -2,19 +2,15 @@ import React from 'react';
 import './lesserKnown.css';
 import useFetch from '../hooks/useFetch';
 import { useNavigate } from 'react-router-dom'; // Import navigate from react-router-dom
+import LesserKnownSkeleton from './LesserKnownSkeleton';
 
 export default function LesserKnown() {
   const { data, loading, error } = useFetch('http://localhost:7000/api/lesserknown');
   const navigate = useNavigate(); // Initialize navigate function
 
   // Handle loading state
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  // Handle error state
-  if (error) {
-    return <div>Error: {error}</div>;
+  if (loading || error) {
+    return <LesserKnownSkeleton />
   }
 
   // Handle case where there is no data

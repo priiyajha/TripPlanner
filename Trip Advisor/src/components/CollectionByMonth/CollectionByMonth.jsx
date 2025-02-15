@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 import "./CollectionByMonth.css"
+import { TripPlannerContext } from '../../context'
 export default function CollectionByMonth() {
+    const {setMonth}=useContext(TripPlannerContext);
     const navigate=useNavigate()
     const month=[
         {
@@ -53,13 +55,17 @@ export default function CollectionByMonth() {
             img:"https://media.istockphoto.com/id/1362644903/photo/kailash-himalaya-mountain-slopes-at-narkanda-himachal-pradesh-india.jpg?s=612x612&w=0&k=20&c=P5OiP9QnX29KjoXZ0YLRmU9pmAHuV1KIoRy4mdD44DY=",
         }
     ]
+    function handleClick(name,image){
+        setMonth({'month':name,'img':image})
+        navigate(`/month/${name}`)
+    }
   return (
     <div className='collection-by-month'>
             <h2>Collections by Month</h2>
             <div className='collection-cards'>
                     {
                         month.map((item,index)=>(
-                            <div key={index} className='collection-card' onClick={() => navigate(`/${item.month}`)}>
+                            <div key={index} className='collection-card' onClick={()=>{ handleClick(item.month,item.img) }}>
                                 <div className='collection-card-img'>
                                     <img src={item.img} alt={item.name} />
                                 </div>

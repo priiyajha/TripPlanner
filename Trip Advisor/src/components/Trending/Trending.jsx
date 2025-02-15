@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate for naviga
 import TrendingSlider from '../../ui/TrendingSlider'; // Assuming FocusCard component is imported
 import "./Trending.css";
 import useFetch from "../../components/hooks/useFetch"
+import SkeletonLoader from './SkeletonLoader';
 export default function Trending() {
   const navigate = useNavigate();
 
@@ -10,14 +11,9 @@ export default function Trending() {
   const { data: places, loading: placesLoading, error: placesError } = useFetch("http://localhost:7000/api/trendingplace");
   const { data: cities, loading: citiesLoading, error: citiesError } = useFetch("http://localhost:7000/api/trendingcity");
 
-  if (placesLoading || citiesLoading) {
-    return <h1>Loading...</h1>;
-  }
-
-  if (placesError || citiesError) {
-    return <h1>Error fetching data</h1>;
-  }
-
+  if (placesLoading || citiesLoading || placesError || citiesError) {
+    return <SkeletonLoader />
+  }  
   return (
     <>
       <div className='Trending-Container-city'>

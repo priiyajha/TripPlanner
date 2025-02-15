@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "./TravelGrid.css";
 import Heritage from "../../assets/Heritage.jpg";
@@ -6,41 +6,48 @@ import Romantic from "../../assets/Romantic.jpg";
 import Foodies from "../../assets/Foodies.jpg";
 import Hills from "../../assets/Hills.jpg";
 import Beach from "../../assets/Beach.jpg";
-
+import { TripPlannerContext } from "../../context";
 const TravelGrid = () => {
-  const navigate = useNavigate(); // Initialize useNavigate
+  const {setTripCategory} = useContext(TripPlannerContext);
+  const navigate = useNavigate();
 
   const articles = [
     {
       category: "Hills and Mountains",
       title: "Explore Hills and Mountains",
+      description: "Hill Stations - Breathe in the fresh mountain air, treat your eyes to the spectacular views, and lose yourself in the charming ambiance to feel refreshed from within.",
       image: Hills
     },
     {
       category: "Heritage",
       title: "Best Tourist Attractions",
+      description: "Explore historical places & countless ideas for an epic break and make way to explore the prominent monuments, streets, architectures, and UNESCO recognized sites",
       image: Heritage,
     },
     {
       category: "Foodies",
       title: "Best Food Attractions",
+      description: "List of foodie tourism destinations and plan a culinary adventure with your loved one to delectable cuisines, local markets, and culinary experiences.",
       image: Foodies,
     },
     {
       category: "Beach",
       title: "Best Beach Attractions",
+      description: "Beach Tourism - Enjoy the soothing sounds of the ocean waves, the gentle breeze, and the warm sun on your skin. Immerse yourself in the tranquility and relaxation of the beach.",
       image: Beach,
     },
     {
       category: "Romantic",
       title: "Best Romantic Attractions",
+      description: "List of romantic tourism destinations and plan a passionate getaway with your special someone to surreal valleys, snow-clad mountains, sun-soaked beaches or adventurous wildlife trails",
       image: Romantic,
     },
   ];
 
-  const handleCardClick = (category) => {
+  const handleCardClick = (category,image,description) => {
     const formattedCategory = category.toLowerCase().replace(/\s+/g, "-"); // Convert to URL-friendly format
-    navigate(`/trip-plan/${formattedCategory}`);
+    setTripCategory({ name: category, image: image , description: description });
+    navigate(`/plan-trip/${formattedCategory}`);
   };
 
   return (
@@ -55,7 +62,7 @@ const TravelGrid = () => {
           key={index}
           className={`travel-card ${index === 0 ? "large" : ""}`}
           style={{ backgroundImage: `url(${article.image})` }}
-          onClick={() => handleCardClick(article.category)}
+          onClick={() => handleCardClick(article.category, article.image,article.description)}
         >
           <div className="travel-card-content">
             <h3>{article.title}</h3>

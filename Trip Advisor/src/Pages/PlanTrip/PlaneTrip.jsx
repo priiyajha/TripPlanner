@@ -10,10 +10,8 @@ import heritage from "../../assets/heritage.jpg";
 import Foodies from "../../assets/Foodies.jpg";
 import Relax from "../../assets/Relax.jpg";
 import bg1 from "../../assets/bg2.jpg";
-import AllCards from "../../components/AllCards/AllCards";
+import AllCards from "../../components/AllCards_PlanTrip/AllCards";
 export default function PlanTrip() {
-  const navigate = useNavigate();
-  // Array of places with details
   const places = [
     {
       img: Romantic,

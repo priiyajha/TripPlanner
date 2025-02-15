@@ -25,10 +25,16 @@
     --ta-Quintessential: "Quintessential", serif;
     --ta-Raleway: "Raleway", sans-serif;
 }
+html{
+  cursor:url("./assets/dot.png"), auto;
+}
 body{
   font-smooth: antialiased;
-  -webkit-font-smoothing: antialiased
+  -webkit-font-smoothing: antialiased;
+  /* cursor: none; */
+  
 }
+
 .glow-on-hover {
     margin: 10px;
     border: none;
@@ -88,4 +94,44 @@ body{
     0% { background-position: 0 0; }
     50% { background-position: 400% 0; }
     100% { background-position: 0 0; }
+  }
+
+
+  .where-to-container {
+    color: #fff;
+  }
+  .where-to-header{
+    position: relative;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .where-to-header img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: brightness(0.4);
+    object-fit: cover;
+    z-index: -1;
+  }
+  /* Title Styling */
+  .where-to-container .where-to-title {
+    text-align: center;
+    font-size: 2rem;
+    font-family: var(--ta-serif);
+    color: #b8e31b;
+  }
+  
+  /* Description Paragraph */
+  .where-to-container .where-to-description {
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: var(--ta-serif);
+    color: #1de849;
+    line-height: 1.8;
   }

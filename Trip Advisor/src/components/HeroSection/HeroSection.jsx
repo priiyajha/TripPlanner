@@ -1,5 +1,6 @@
 import React from "react";
 import "./HeroSection.css";
+import GradientText from "../../ui/GradientText";
 const HeroSection = () => {
   const HeroLine=[
     "Every journey is a heartbeat, a moment that transforms into a memory, inviting you to explore the world and discover yourself.",
@@ -18,7 +19,14 @@ const HeroSection = () => {
           Explore the World
           </h1>
           <p>
-            {randomHeroLine}
+            <GradientText
+              colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+              animationSpeed={3}
+              showBorder={false}
+              className="custom-class"
+            >
+              {randomHeroLine}
+            </GradientText>
           </p>
           <div className="see-more">
               <button class="glow-on-hover" type="button">SEE MORE</button>

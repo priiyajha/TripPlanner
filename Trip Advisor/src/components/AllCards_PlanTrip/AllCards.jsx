@@ -1,7 +1,11 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+//USE IN PLAN TRIP TO SHOW ALL PLAN TRIP CARD
 
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { TripPlannerContext } from '../../context';
+import "./AllCards.css";
 const AllCards = ({ places }) => {
+  const {setTripCategory} = useContext(TripPlannerContext);
   const navigate = useNavigate();
   return (
     <div className="where-to-content">
@@ -20,15 +24,11 @@ const AllCards = ({ places }) => {
               <br />
               <button
                 className="explore-button"
-                onClick={() => navigate(`/plan-trip/${place.name}`, {
-                  state: {
-                    someProp: {
-                      img: place.img,
-                      name: place.name,
-                      description: place.description
-                    }
-                  }
-                })}
+                onClick={() =>{
+                  navigate(`/plan-trip/${place.name}`)
+                  setTripCategory({ name: place.name, image: place.img , description: place.description });
+                }}
+
               >
                 <span className="explore-button-bg"></span>
                 <span className="explore-button-text">Explore</span>
